@@ -1,0 +1,126 @@
+SHL – Generative AI Assessment Recommendation System
+
+This project is a web-based Assessment Recommendation System built using:
+
+A cleaned dataset of SHL assessment pages
+
+Sentence-transformer embeddings (MPNet)
+
+Nearest Neighbors (cosine similarity)
+
+Flask backend
+
+HTML/CSS/JS frontend
+
+It provides:
+✔ Semantic search
+✔ Recommendation API
+✔ Browser UI for testing
+✔ Perfect Evaluation (Recall@10 = 1.0)
+
+🔧 1. Project Features
+
+✔ Data ingestion
+
+The dataset was extracted from SHL product pages using Playwright and cleaned with custom preprocessing.
+
+✔ Embedding-based vector search
+
+all-mpnet-base-v2 sentence-transformer is used to convert descriptions into high-dimensional vectors.
+
+✔ Nearest Neighbor index
+
+scikit-learn’s cosine NearestNeighbors model retrieves similar assessments.
+
+✔ Flask backend
+
+Provides a /recommend endpoint which returns top matching assessments.
+
+✔ Frontend UI
+
+A simple HTML page that sends queries to the API and displays results.
+
+✔ Evaluation
+
+Achieved 100% Recall@10 using the provided labeled dataset.
+
+📁 2. Folder Structure (Flask for Render)
+
+This structure is designed for easy deployment on platforms like Render.
+
+SHL/
+│
+├── app.py                     # The main Flask server
+│
+├── crawler.py
+├── fetch_from_excel_playwright.py
+├── clean_catalog.py
+├── build_index.py
+├── retrieve_test.py
+├── rule_type_classifier.py
+│
+├── data/
+│   ├── catalog_raw.csv
+│   ├── catalog_from_excel.csv
+│   ├── catalog_clean.csv
+│   ├── embeddings.npy         # (MUST ADD MANUALLY)
+│   ├── metadata.csv           # (MUST ADD MANUALLY)
+│   ├── nn_model.joblib        # (MUST ADD MANUALLY)
+│
+├── templates/                 # Flask HTML folder
+│   └── index.html
+│
+├── static/                    # Flask CSS/JS folder
+│   ├── script.js
+│   └── styles.css
+│
+├── requirements.txt           # Updated for Flask
+├── README.md                  # This file
+└── .gitignore
+
+
+🚀 3. How to Run (Flask Version)
+
+Step 1 — Create data/ directory
+Create the data/ directory and place your key files (embeddings.npy, metadata.csv, nn_model.joblib) inside it.
+
+Step 2 — Install dependencies
+
+pip install -r requirements.txt
+
+
+Step 3-5 — (Optional) Data Pipeline
+If you need to regenerate your data:
+
+python fetch_from_excel_playwright.py
+python clean_catalog.py
+python build_index.py
+
+
+Step 6 — (Optional) Run retrieval test (CLI)
+
+python retrieve_test.py
+
+
+Step 7 — Run the Flask App (Locally)
+
+flask run --port 8000
+
+
+Or for development with auto-reload:
+
+FLASK_ENV=development flask run --port 8000
+
+
+Open http://127.0.0.1:8000 in your browser.
+
+Step 8 — Run for Production (How Render will run it)
+Render will use this command (defined in your requirements.txt).
+
+gunicorn app:app
+
+
+4. Evaluation Result
+
+Queries evaluated: 10
+Mean Recall@10: 1.0

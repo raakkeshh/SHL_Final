@@ -1,0 +1,15 @@
+/* This file is identical to your original styles.css */
+body{font-family:Arial, sans-serif;background:#f6f8fb;margin:0;padding:20px}
+.container{max-width:900px;margin:auto;background:#fff;padding:20px 40px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.08)}
+h1 { color: #1e3a8a; }
+textarea{width:100%;box-sizing: border-box;height:120px;padding:10px;border-radius:6px;border:1px solid #ddd;margin-bottom:10px;font-family:Arial, sans-serif;font-size:1rem;}
+.controls{display:flex;gap:10px;align-items:center;margin-bottom:15px}
+button{padding:10px 16px;background:#2563eb;color:white;border:none;border-radius:8px;font-size: 1rem; cursor: pointer; transition: background-color 0.2s;}
+button:hover{ background: #1d4ed8; }
+#topk { padding: 8px; border-radius: 6px; border: 1px solid #ddd; font-size: 0.9rem;}
+table{width:100%;border-collapse:collapse;margin-top:15px}
+td,th{padding:12px 10px;border-bottom:1px solid #eee;text-align:left;vertical-align: top;}
+th { background-color: #f9fafb; color: #374151;}
+td a { color: #2563eb; text-decoration: none; }
+td a:hover { text-decoration: underline; }
+#status { margin-top: 15px; font-style: italic; color: #555; }

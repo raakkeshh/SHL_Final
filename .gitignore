@@ -1,0 +1,5 @@
+/data/
+
+pycache/*.pyc
+
+.venv/venv/
